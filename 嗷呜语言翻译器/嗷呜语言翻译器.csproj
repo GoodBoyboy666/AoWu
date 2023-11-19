@@ -2,18 +2,30 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows10.0.17763.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>嗷呜语言翻译器.Program</StartupObject>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Title>嗷呜语言翻译器</Title>
-    <Version></Version>
     <Authors>GoodBoyboy</Authors>
     <PackageProjectUrl>https://www.goodboyboy.top</PackageProjectUrl>
     <NeutralLanguage>zh-CN</NeutralLanguage>
     <Copyright>Copyright ©2015-2023 GoodBoyboy, All Rights Reserved.</Copyright>
+    <SignAssembly>False</SignAssembly>
+    <ErrorReport>none</ErrorReport>
+    <Description>一个好玩的小程序</Description>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <Version>1.1</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
 
   <ItemGroup>
