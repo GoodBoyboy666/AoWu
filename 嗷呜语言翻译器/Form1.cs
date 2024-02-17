@@ -28,6 +28,11 @@ namespace 嗷呜语言翻译器
             }
         }
         #region ToAowu主逻辑
+        /// <summary>
+        /// 地球语转换为嗷呜语
+        /// </summary>
+        /// <param name="text">文本内容</param>
+        /// <returns></returns>
         private string Maintranslate(string text)
         {
             string translated_text = "";
@@ -46,8 +51,11 @@ namespace 嗷呜语言翻译器
             }
             return translated_text;
         }
-
-        private void Toeight(ref char[] chars)//向前补齐8位
+        /// <summary>
+        /// 向前补齐8位
+        /// </summary>
+        /// <param name="chars">需要补齐的字符</param>
+        private void Toeight(ref char[] chars)
         {
             while (chars.Length < 8)
             {
@@ -59,7 +67,11 @@ namespace 嗷呜语言翻译器
                 chars[0] = '0';
             }
         }
-
+        /// <summary>
+        /// 转换主逻辑
+        /// </summary>
+        /// <param name="chars">补齐八位后的字符</param>
+        /// <returns></returns>
         private string Toaowu(char[] chars)
         {
             string aowu = "";
@@ -83,7 +95,12 @@ namespace 嗷呜语言翻译器
             }
             return aowu;
         }
-        private string Quaternary(int str)//十进制转换为四进制
+        /// <summary>
+        /// 十进制转换为四进制
+        /// </summary>
+        /// <param name="str">十进制Int</param>
+        /// <returns></returns>
+        private string Quaternary(int str)
         {
             string num = "";
             while(str> 0)
@@ -108,6 +125,11 @@ namespace 嗷呜语言翻译器
             HashAlgorithm algorithm = SHA256.Create(); 
             return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
         }
+        /// <summary>
+        /// 计算Hash
+        /// </summary>
+        /// <param name="inputString">需要计算Hash的字符串</param>
+        /// <returns></returns>
 
         public static string GetHashString(string inputString)
         {
@@ -168,13 +190,22 @@ namespace 嗷呜语言翻译器
             }
         }
         #region ToNormalLanguage主逻辑
+        /// <summary>
+        /// 嗷呜语转换为地球语
+        /// </summary>
+        /// <param name="str">待转换的字符串（8位）</param>
+        /// <returns></returns>
         private string restore(string str)
         {
             
             return ((char)AowuTovDecimal(str)).ToString();//翻译为原文并返回
             
         }
-
+        /// <summary>
+        /// 嗷呜语转换为十进制数据
+        /// </summary>
+        /// <param name="str">嗷呜语（8位）</param>
+        /// <returns></returns>
         private int AowuTovDecimal(string str)
         {
             string ret = "";//待转换的四进制
